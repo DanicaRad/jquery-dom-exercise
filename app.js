@@ -21,3 +21,7 @@ $.when( $.ready ).then(function() {
     $("input").on("click", function() {
         console.log($(this).eq(0).val());
     })
+
+    $(".col-sm-4").on("click", function() {
+        console.log('this val', $('input').eq(1).val());
+    })

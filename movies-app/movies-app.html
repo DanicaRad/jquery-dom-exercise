@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies-app</title>
+</head>
+<body>
+
+    <h1>Rate some movies</h1>
+
+    <form action="">
+        Movie
+        <input class="movie-name" type="text" min="2ch" placeholder="name of movie">
+        Rating
+        <input class="rating" type="number" min="0" max="10" value="7" style="width:50px">
+        <input type="submit">
+    </form>
+
+    <div class="rated-movies">
+        <h4></h4>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+            if($('input').first().val().length >= 2) {
+                $('h4').text('My Movies');
+                const newDiv = $('<div>', {class:'my-movies'});
+                $('.rated-movies').append(newDiv);
+  
+                newDiv.append('Movie: ' + $('input').first().val(), '<br>', 'Rating: ' + $('input').eq(1).val(), '<br>', '<button>Remove movie</button>');
+                $('form').trigger('reset');
+            }
+            return;
+        });
+
+        $('.rated-movies').on('click', 'button', function() {
+            $(this).parent().remove();
+        })
+
+    </script>
+    
+</body>
+</html>

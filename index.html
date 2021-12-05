@@ -108,24 +108,18 @@
 
   // this isnt working yet
 
-  $('.col-sm-4').on('click', function() {
-    console.log(`'` + 'rgb' + '(' + $('input').eq(0).val() + ',' + $('input').eq(1).val() + ',' + $('input').eq(2).val() + ')' + `'`);
+  $('.form-control').on('keyup blur change', function() {
 
-    const red = $('input').eq(0).val();
-    const green = $('input').eq(1).val();
-    const blue = $('input').eq(2).val();
+    const red = $('.form-control').eq(0).val();
+    const green = $('.form-control').eq(1).val();
+    const blue = $('.form-control').eq(2).val();
     
-    console.log('red', red);
 
-    $('body').css('background-color', `'` + 'rgb' + '(' + $('input').eq(0).val() + ', ' + $('input').eq(1).val() + ', ' + $('input').eq(2).val() + ')' + `'`);
+    $('body').css('background-color', `rgb(` + red + `, ` + green + `, ` + blue + `)`);
  
-
-    console.log('body', $('body').css('background-color'));
   })
 
-  $(".col-sm-4").on("click", function() {
-        console.log('this val', $('input').eq(1).val());
-    })
+
 
   // Add an event listener so that when you click on the image, it is removed from the DOM.
 
